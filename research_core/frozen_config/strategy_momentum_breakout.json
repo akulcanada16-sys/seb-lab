@@ -1,0 +1,134 @@
+{
+  "created_date": "2026-07-24",
+  "entry_policy": "BREAKOUT_CLOSE",
+  "name": "Momentum Breakout Continuation",
+  "parameters": {
+    "breakout_buffer_ticks": {
+      "default": 1,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Required close depth beyond level",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "step": 1
+    },
+    "close_location": {
+      "default": 0.7,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Close-near-extreme threshold",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        0.6,
+        0.7,
+        0.8
+      ],
+      "step": 0.05
+    },
+    "compression_bars": {
+      "default": 8,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Bars defining compression",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        5,
+        8,
+        12
+      ],
+      "step": "discrete"
+    },
+    "compression_width_atr": {
+      "default": 2.2,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Maximum compression width in ATR",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        1.5,
+        2.2,
+        3.0
+      ],
+      "step": 0.25
+    },
+    "expiration_bars": {
+      "default": 2,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Ticket lifetime in one-minute bars",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        1,
+        2,
+        4
+      ],
+      "step": 1
+    },
+    "fallback_target_r": {
+      "default": 1.0,
+      "evidence": "ACTIVE_PAPER_EXPERIMENT",
+      "meaning": "Fixed-R target when no external level exists",
+      "modified": "2026-07-28",
+      "promotion": "ACTIVE_PAPER_EXPERIMENT",
+      "search": [
+        1.0,
+        1.5,
+        2.0
+      ],
+      "step": 0.25
+    },
+    "min_body_ratio": {
+      "default": 0.58,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Minimum breakout body efficiency",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        0.45,
+        0.58,
+        0.7
+      ],
+      "step": 0.05
+    },
+    "relative_volume": {
+      "default": 1.05,
+      "evidence": "EVIDENCE_SUPPORTED",
+      "meaning": "Same-minute normalized volume gate",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        0.8,
+        1.05,
+        1.3
+      ],
+      "step": 0.1
+    },
+    "stop_policy": {
+      "default": "BREAKOUT_BAR",
+      "evidence": "DEFINITIONAL",
+      "meaning": "Deterministic breakout stop policy",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        "BREAKOUT_BAR",
+        "LEVEL_RECLAIM",
+        "COMPRESSION_RANGE"
+      ],
+      "step": "discrete"
+    }
+  },
+  "promotion_status": "ACTIVE_PAPER_EXPERIMENT",
+  "required_conditions": [
+    "breakout",
+    "body",
+    "close",
+    "target_room"
+  ],
+  "strategy_id": "momentum_breakout",
+  "version": "v1.2.0"
+}

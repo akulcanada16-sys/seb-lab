@@ -1,0 +1,20 @@
+{
+  "account_hard_limit_fields": [
+    "dll_remaining",
+    "ttd_remaining"
+  ],
+  "estimated_round_trip_commission": 1.9,
+  "fee_policy": "GOAT_ACTUAL_0_95_PER_SIDE",
+  "fixed_contracts": 1,
+  "fixed_risk_dollars": 100.0,
+  "instrument": "MNQ",
+  "maximum_contracts": 5,
+  "minimum_target_room_r": 1.0,
+  "point_values": {
+    "MNQ": 2.0,
+    "NQ": 20.0
+  },
+  "sizing_mode": "FIXED_RISK_DOLLARS",
+  "slippage_ticks_each_side": 0.0,
+  "tick_size": 0.25
+}

@@ -1,0 +1,26 @@
+{
+  "block_bootstrap_samples": 10000,
+  "costs_enabled": true,
+  "design_fraction": 0.6,
+  "entry_policy": "ADAPTIVE_AGENT_CORE_OPPORTUNITY_NEXT_BAR_OPEN",
+  "flatten_at_rth_end": true,
+  "forward_return_bars": [
+    1,
+    3,
+    5,
+    10,
+    15
+  ],
+  "lockbox_fraction": 0.2,
+  "maximum_bars_held": 15,
+  "robustness": {
+    "enabled": true,
+    "minimum_sessions_for_informative": 20,
+    "minimum_trades_for_informative": 30,
+    "seed": 20260827,
+    "session_block_length": 1,
+    "session_block_monte_carlo_samples": 10000
+  },
+  "same_bar_resolution": "ADVERSE_FIRST",
+  "validation_fraction": 0.2
+}

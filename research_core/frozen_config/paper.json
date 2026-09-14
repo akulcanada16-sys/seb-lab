@@ -1,0 +1,193 @@
+{
+  "account_id": "SEB_PAPER_PRIMARY",
+  "allowed_modes": [
+    "LIVE_DETECTION_AUTO_PAPER"
+  ],
+  "decision_agent": {
+    "cold_start_schedule": [
+      {
+        "daily_cap": 2,
+        "exploit_allowed": false,
+        "exploration_floor": 0.25,
+        "maximum_closed_trades": 0,
+        "minimum_closed_trades": 0
+      },
+      {
+        "daily_cap": 2,
+        "exploit_allowed": true,
+        "exploration_floor": 0.2,
+        "maximum_closed_trades": 5,
+        "minimum_closed_trades": 1,
+        "use_cold_start_take_threshold": true
+      },
+      {
+        "daily_cap": 2,
+        "exploit_allowed": true,
+        "exploration_floor": 0.15,
+        "maximum_closed_trades": 11,
+        "minimum_closed_trades": 6
+      },
+      {
+        "daily_cap": 3,
+        "exploit_allowed": true,
+        "exploration_floor": 0.1,
+        "maximum_closed_trades": 19,
+        "minimum_closed_trades": 12
+      },
+      {
+        "daily_cap": 3,
+        "exploit_allowed": true,
+        "exploration_floor": 0.05,
+        "maximum_closed_trades": null,
+        "minimum_closed_trades": 20
+      }
+    ],
+    "cold_start_take_probability_threshold": 0.9,
+    "exploration": {
+      "coverage_gap_threshold": 0.15,
+      "coverage_weight": 0.3,
+      "disagreement_weight": 0.0,
+      "duplicate_penalty": 0.5,
+      "high_uncertainty_sd_r": 0.2,
+      "maximum_same_bucket_per_day": 1,
+      "maximum_same_direction_per_day": 1,
+      "maximum_same_session_per_day": 1,
+      "maximum_take_probability": 0.35,
+      "minimum_probability": 0.05,
+      "novelty_threshold": 0.2,
+      "novelty_weight": 0.25,
+      "probability_epsilon": 1e-06,
+      "recent_signature_window": 5,
+      "uncertainty_reference_sd_r": 0.75,
+      "uncertainty_weight": 0.45
+    },
+    "feature_version": "paper-features-v3.0",
+    "high_completion_override": {
+      "counterfactual_recovery": {
+        "enabled": true,
+        "good_setup_threshold_r": 0.5,
+        "maximum_probes_per_context_per_day": 1,
+        "minimum_completed_replays": 5,
+        "minimum_expectancy_r": 0.03,
+        "minimum_good_rate": 0.3,
+        "recent_replay_window": 20
+      },
+      "enabled": true,
+      "grouping": [
+        "strategy_id",
+        "direction",
+        "session_segment",
+        "hour_bucket",
+        "session_range_zone",
+        "recent_range_zone",
+        "rth_range_zone",
+        "vwap_zone",
+        "trend_regime",
+        "volatility_regime",
+        "reference_level_type"
+      ],
+      "loss_definition": "realized_r_below_zero",
+      "loss_sequence": "consecutive_recent_outcomes",
+      "maximum_realized_losses": 5,
+      "minimum_completion": 0.9
+    },
+    "legacy": {
+      "exploration_trades_per_strategy_per_day": 4,
+      "maximum_history_trades": 80,
+      "minimum_epoch_trades": 20,
+      "minimum_expected_r": 0.05,
+      "minimum_probability_positive": 0.56,
+      "minimum_similar_trades": 12,
+      "zero_edge_prior_strength": 5.0
+    },
+    "minimum_local_effective_sample_size": 0.0,
+    "mode": "bayesian_bandit",
+    "model": {
+      "categorical_effect_prior_sd_r": 0.25,
+      "convergence_tolerance": 1e-06,
+      "degrees_of_freedom": 5.0,
+      "family_version_prior_strength": 6.0,
+      "intercept_prior_sd_r": 0.75,
+      "irls_iterations": 20,
+      "legacy_realized_training_weight": 0.5,
+      "main_effect_prior_sd_r": 0.35,
+      "major_parent_prior_strength": 0.0,
+      "maximum_training_rows_per_family": 1000,
+      "minor_parent_prior_strength": 8.0,
+      "realized_paper_training_weight": 1.0,
+      "refit_minimum_new_outcomes": 1,
+      "replayed_paper_training_weight": 0.35,
+      "residual_scale_prior_r": 0.75
+    },
+    "model_name": "hierarchical-student-t-main-effects",
+    "policy_version": "bayesian-bandit-v1.2",
+    "positive_expected_r_threshold": 0.05,
+    "posterior_freshness_hours": 24,
+    "predictive_q10_guardrail_r": -0.35,
+    "relationships": {
+      "balance_rotation": {
+        "family_id": "balance_rotation",
+        "parent_version_id": "v1.0.0-5e5042d39edd4881",
+        "pooling_group": "balance_rotation_versions",
+        "revision_kind": "minor"
+      },
+      "failed_break_reclaim": {
+        "family_id": "failed_break_reclaim",
+        "parent_version_id": "v1.0.0-74e7fe9d4aa30777",
+        "pooling_group": "failed_break_reclaim_versions",
+        "revision_kind": "minor"
+      },
+      "momentum_breakout": {
+        "family_id": "momentum_breakout",
+        "parent_version_id": "v1.1.0-9eb02d4266b4150b",
+        "pooling_group": "momentum_breakout_versions",
+        "revision_kind": "minor"
+      }
+    },
+    "severe_negative_expected_r": -0.3,
+    "severe_negative_probability": 0.8,
+    "standardization": {
+      "binary_missing_policy": "false_with_missing_indicator",
+      "categorical_missing_policy": "UNAVAILABLE",
+      "method": "training_mean_and_sample_sd",
+      "numeric_missing_policy": "training_mean_with_missing_indicator",
+      "zero_variance_value": 0.0
+    },
+    "take_probability_threshold": 0.8
+  },
+  "decision_policy": "ADAPTIVE_BAYESIAN_BANDIT",
+  "enabled": true,
+  "fill_on_next_completed_bar": true,
+  "instrument": "MNQ",
+  "maximum_account_heat_pct": 0.01,
+  "maximum_daily_loss_dollars": null,
+  "one_position_per_strategy": true,
+  "point_value": 2.0,
+  "post_exit_tracking_bars": 15,
+  "rejected_setup_tracking": {
+    "backfill_candidates_per_strategy": 500,
+    "enabled": true,
+    "good_setup_threshold_r": 0.5,
+    "maximum_outcome_bars": 30,
+    "opportunity_cluster_minutes": 5
+  },
+  "same_bar_exit_policy": "ADVERSE_FIRST",
+  "starting_balance": 50000.0,
+  "tick_size": 0.25,
+  "trailing_stop": {
+    "activation_mfe_r": 1.0,
+    "activation_requires_trail_clearance": true,
+    "atr_multiple": 1.5,
+    "eligible_strategies": [
+      "momentum_breakout",
+      "failed_break_reclaim"
+    ],
+    "enabled": true,
+    "fallback_distance_r": 1.25,
+    "lock_in_r": 0.1,
+    "minimum_bars_held": 1,
+    "minimum_distance_r": 1.0,
+    "policy_version": "atr-chandelier-paper-v2",
+    "target_handoff": true
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "seb-strategy-evidence-bench",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {"build": "node build.cjs", "test": "node tests/interface.cjs web"},
+  "devDependencies": {"jsdom": "26.1.0"}
+}

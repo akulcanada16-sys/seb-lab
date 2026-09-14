@@ -1,0 +1,95 @@
+{
+  "created_date": "2026-07-24",
+  "entry_policy": "RECLAIM_CLOSE",
+  "name": "Failed Break & Reclaim",
+  "parameters": {
+    "expiration_bars": {
+      "default": 3,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Ticket lifetime in one-minute bars",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        1,
+        3,
+        5
+      ],
+      "step": 1
+    },
+    "fallback_target_r": {
+      "default": 1.4,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Fixed-R target if no interior level exists",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        1.0,
+        1.4,
+        2.0
+      ],
+      "step": 0.2
+    },
+    "level_proximity_atr": {
+      "default": 0.6,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Maximum distance to eligible level",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        0.3,
+        0.6,
+        1.0
+      ],
+      "step": 0.1
+    },
+    "max_penetration_atr": {
+      "default": 0.75,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Maximum valid penetration before invalidation",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        0.4,
+        0.75,
+        1.1
+      ],
+      "step": 0.1
+    },
+    "reclaim_window_bars": {
+      "default": 2,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Maximum bars outside before reclaim",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        1,
+        2,
+        3
+      ],
+      "step": 1
+    },
+    "stop_buffer_ticks": {
+      "default": 1,
+      "evidence": "HYPOTHESIS_DEFAULT",
+      "meaning": "Stop buffer beyond failed excursion",
+      "modified": "2026-07-24",
+      "promotion": "HYPOTHESIS_DEFAULT",
+      "search": [
+        1,
+        2,
+        3
+      ],
+      "step": 1
+    }
+  },
+  "promotion_status": "ACTIVE_PAPER_EXPERIMENT",
+  "required_conditions": [
+    "eligible_level",
+    "failure",
+    "penetration",
+    "reclaim",
+    "target_room"
+  ],
+  "strategy_id": "failed_break_reclaim",
+  "version": "v1.1.0"
+}
